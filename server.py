@@ -28,7 +28,7 @@ def handle_client(conn, addr):
             if msg == DISCONNECT_MESSAGE:
                 connected = False
 
-            print(f"[{addr}] {msg}")
+            print(f"[user: {addr}] {msg}")
     conn.close()
 
 # Starts the connection and handling of client. In threads to avoid consecutive handling of clients instead of simultaneous.
