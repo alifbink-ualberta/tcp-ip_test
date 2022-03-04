@@ -1,6 +1,6 @@
 import socket
 
-HEADER = 16
+HEADER = 64
 PORT = 5050
 FORMAT = 'utf-8'
 DISCONNECT_MESSAGE = "!DISCONNECT"
@@ -17,8 +17,8 @@ def send(msg):
     send_length += b' ' * (HEADER - len(send_length))
     client.send(send_length)
     client.send(message)
-    #if client.recv():
-    print(client.recv(HEADER).encode(FORMAT))
+    #if client.recv(2048):
+    print(client.recv(HEADER).decode(FORMAT))
 
 typed = None
 while typed != DISCONNECT_MESSAGE:

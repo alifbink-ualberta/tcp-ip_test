@@ -1,7 +1,7 @@
 import socket
 import threading
 
-HEADER = 16
+HEADER = 64
 PORT = 5050
 # Gets the local ipv4 address.
 SERVER = socket.gethostbyname(socket.gethostname())
@@ -31,7 +31,7 @@ def handle_client(conn, addr):
                 conn.send("Disconnected.".encode(FORMAT))
             else:
                 print(f"[{addr}] {msg}")
-                conn.send("Message recieved.".encode(FORMAT))
+                conn.send("Message recieved".encode(FORMAT))
     conn.close()
 
 # Starts the connection and handling of client. In threads to avoid consecutive handling of clients instead of simultaneous.
